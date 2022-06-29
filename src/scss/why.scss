@@ -1,0 +1,102 @@
+.why {
+    &__item {
+        padding: 100px 0;
+        @media (max-width: $md4 + px) {
+            padding: 60px 0 100px 0;
+        }
+    }
+    &__title {
+        text-align: center;
+        margin: 0 0 47px 0;
+        @media (max-width: $md2 + px) {
+            margin: 0 0 40px 0;
+        }
+        @media (max-width: $md3 + px) {
+            margin: 0 0 30px 0;
+        }
+        @media (max-width: $md4 + px) {
+            margin: 0 0 24px 0;
+        }
+    }
+    &__subtitle {
+        margin-bottom: 30px;
+        font-weight: 700;
+        @include adaptiv-font(29, 18);
+        line-height: 24 / 28 * 100%;
+    }
+    &__content {
+        display: flex;
+        gap: 150px;
+        justify-content: flex-start;
+        margin-left: 2%;
+        @media (max-width: 1700px) {
+            gap: 120px;
+        }
+        @media (max-width: 1200px) {
+            gap: 90px;
+        }
+        @media (max-width: $md2 + px) {
+            flex-direction: column-reverse;
+            align-items: center;
+            &_security {
+                flex-direction: column;
+            }
+            gap: 60px;
+        }
+        @media (max-width: $md3 + px) {
+            gap: 40px;
+        }
+        @media (max-width: $md4 + px) {
+            gap: 30px;
+        }
+    }
+    &__img {
+        max-width: 40%;
+        @media (max-width: $md2 + px) {
+            max-width: 74%;
+        }
+        img {
+            width: 100%;
+        }
+    }
+    &__text {
+        max-width: 41.5%;
+        box-sizing: border-box;
+
+        padding: 40px 0 0 0;
+        @include adaptiv-font(15, 14);
+        line-height: 25 / 18 * 100%;    @media (max-width: $md4 + px) {
+            line-height: 26 / 16 * 100%;
+        }
+        p {
+            margin: 0 0 20px 0;
+            &:last-child {
+                margin: 0 0 35px 0;
+            }
+        }
+        @media (max-width: $md2 + px) {
+            padding: 0;
+            max-width: 80%;
+        }
+        @media (max-width: $md2 + px) {
+            max-width: none;
+        }
+    }
+
+    &__learn {
+        position: relative;
+        color: #23EAA4;
+        @include adaptiv-font(18.5, 16);
+        font-weight: 600;
+        line-height: 64 / 16 * 100%;
+        &:hover {
+            text-decoration: underline;
+        }
+        img {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -25px;
+        }
+    }
+}

@@ -1,0 +1,94 @@
+.diverse {
+    padding: 100px 0 80px 0;
+    background: linear-gradient(360deg, #23EAA4 0%, rgba(35, 234, 164, 0.2) 60.94%, rgba(35, 234, 164, 0) 100%);
+    text-align: center;
+    @media (max-width: $md2+px) {
+        padding: 80px 0;
+    }
+    @media (max-width: $md3+px) {
+        padding: 70px 0 80px 0;
+    }
+    @media (max-width: $md4+px) {
+        padding: 60px 0 80px 0;
+    }
+    &__title {
+        margin: 0 0 87px 0;
+        color: #fff;
+        @media (max-width: $md2+px) {
+            margin: 0 0 70px 0;
+        }
+        @media (max-width: $md3+px) {
+            margin: 0 0 60px 0;
+        }
+        @media (max-width: $md4+px) {
+            margin: 0 0 48px 0;
+        }
+    }
+    &__items {
+        max-width: 1188px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        row-gap: 60px;
+        @media (max-width: $md2+px) {
+            row-gap: 50px;
+        }
+        @media (max-width: $md3+px) {
+            row-gap: 40px;
+        }
+        @media (max-width: $md4+px) {
+            row-gap: 32px;
+        }
+    }
+    &__item {
+        width: 26%;
+        @media (max-width: $md2+px) {
+            width: 45%;
+        }
+        @media (max-width: $md3+px) {
+            margin: 0 auto;
+            width: 90%;
+        }
+        @media (max-width: $md4+px) {
+            width: 100%;
+
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+
+            column-gap: 16px;
+            row-gap: 12px;
+
+            text-align: left;
+        }
+    }
+    &__img {
+        margin: 0 0 30px 0;
+        @media (max-width: $md2+px) {
+            max-width: 100px;
+        }
+        @media (max-width: $md3+px) {
+            max-width: 90px;
+        }
+        @media (max-width: $md4+px) {
+            max-width: 70px;
+            margin: 0;
+        }
+    }
+    &__subtitle {
+        @include adaptiv-font(18.5, 16);
+        font-weight: 700;
+        line-height: 24 / 18 * 100%;
+        margin: 0 0 20px 0;
+        @media (max-width: $md4 + px) {
+            line-height: 20 / 16 * 100%;
+            margin: 0;
+        }
+    }
+    &__text {
+        font-size: 14px;
+        line-height: 22 / 14 * 100%;
+        color: #000;
+    }
+}

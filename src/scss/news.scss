@@ -1,0 +1,174 @@
+* {
+    min-height: 0;
+    min-width: 0;
+}
+
+.news {
+    padding: 100px 0;
+    background: #23EAA4;
+    @media (max-width: $md2 + px) {
+        padding: 90px 0 70px 0;
+    }
+    @media (max-width: $md3 + px) {
+        padding: 80px 0 60px 0;
+    }
+    @media (max-width: $md4 + px) {
+        padding: 60px 0;
+    }
+
+    &__container {
+        position: relative;
+    }
+    &__see-all {
+        position: absolute;
+        top: 18px;
+        right: 6.5%;
+        color: #19192A;
+        @include adaptiv-font(18, 16);
+        font-weight: 600;
+        line-height: 23 / 16 * 100%;
+        &:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            top: 93%;
+            right: 40%;
+        }
+    }
+    &__title {
+        text-align: center;
+        color: #19192A;
+        margin: 0 0 75px 0;
+        @media (max-width: $md2 + px) {
+            margin: 0 0 62px 0;
+        }
+        @media (max-width: $md3 + px) {
+            margin: 0 0 42px 0;
+        }
+        @media (max-width: $md4 + px) {
+            margin: 0 0 32px 0;
+        }
+    }
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+        .slick-slider {
+            position: relative;
+        }
+        .slick-list {
+            margin: 0 0 65px 0;
+        }
+        .slick-track {
+            margin: 0 -12px;
+        }
+        .slick-arrow {
+            position: absolute;
+            top: 28%;
+            z-index: 100;
+            overflow: visible;
+            width: 32px;
+            height: 32px;
+
+            font-size: 0;
+        }
+        .slick-prev {
+            left: 12px;
+            background: url('../img/news/arrow.jpg') 0 0 / 100% no-repeat;
+        }
+        .slick-next {
+            right: 14px;
+            background: url('../img/news/arrow.jpg') 0 0 / 100% no-repeat;
+            transform: rotateY(180deg);
+        }
+
+        .slick-dots {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            li {
+                list-style: none;
+                margin: 0 20px 0 0;
+                @media (max-width: $md4 + px) {
+                    margin: 0 8px 0 0;
+                }
+            }
+            button {
+                font-size: 0;
+                width: 10px;
+                height: 10px;
+                color: #fff;
+                border-radius: 50%; 
+                background: #fff;
+                border: 1px solid #fff;
+            }
+            li.slick-active {
+                button {
+                    background: #19192A;
+                    border: 1px solid #19192A;
+                }
+            }
+            }
+            .slick-slide {
+                padding: 0 12px;
+                max-width: 30.45vw;
+                @media (max-width: 2016px) {
+                    max-width: 30.6vw;
+                }
+                @media (max-width: 1920px) {
+                    max-width: 30.1vw;
+                }
+                @media (max-width: 1248px) {
+                    max-width: 46vw;
+                }
+                @media (max-width: $md2 + px) {
+                    max-width: 92.6vw;
+                }
+                @media (max-width: 600px) {
+                    max-width: 93.6vw;
+                }
+                @media (max-width: $md4 + px) {
+                    max-width: 96.8vw;
+                }
+            }
+        }
+        &__item {
+            background: #19192A;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+}
+
+.item-news {
+    &__img {
+        width: 100%;
+        object-fit: cover;
+        overflow: hidden;
+    }
+    &__content {
+        padding: 20px;
+    }
+    &__title {
+        font-weight: 600;
+        @include adaptiv-font(23, 18);
+        line-height: 32 / 22 * 100%;
+        color: #23EAA4;
+    }
+    &__date {
+        color: #49495A;
+        @include adaptiv-font(12, 11);
+        line-height: 32 / 12 * 100%;
+        @media (max-width: $md4 + px) {
+            line-height: 16 / 11 * 100%;
+        }
+    }
+    &__text {
+        @include adaptiv-font(13, 12);
+        line-height: 20 / 13 * 100%;
+        @media (max-width: $md4 + px) {
+            line-height: 18 / 12 * 100%;
+        }
+    }
+}
+

@@ -1,0 +1,137 @@
+.howcan {
+    text-align: center;
+    padding: 120px 0 60px 0;
+    @include adaptiv-font(18.5, 16);
+    line-height: 32 / 18 * 100%;
+    @media (max-width: $md2 + px) {
+        padding-top: 100px;
+    }
+    @media (max-width: $md3 + px) {
+        padding-top: 80px;
+    }
+    @media (max-width: $md4 + px) {
+        padding-top: 60px;
+    }
+    input {
+        display: block; 
+        width: 100%;
+        height: 48px;
+        border-radius: 16px;
+        padding: 16px;
+        
+        color: #19192A;
+        font-weight: 500;
+        @include adaptiv-font(18, 16);
+        line-height: 16 / 18 * 100%;
+        @media (max-width: $md4 + px) {
+            height: 44px;
+        }
+    }
+    input::placeholder {
+        @include adaptiv-font(18, 16);
+        font-weight: 500;
+        color: #19192A;
+    }
+    input:invalid {
+        border: 1px solid red;
+    }
+    &__title {
+        margin: 0 0 35px 0;
+        @media (max-width: $md2 + px) {
+            margin: 0 0 30px 0;
+        }
+        @media (max-width: $md3 + px) {
+            margin: 0 0 25px 0;
+        }
+        @media (max-width: $md4 + px) {
+            margin: 0 0 16px 0;
+        }
+    }
+    &__text {
+        max-width: 850px;
+        margin: 0 auto 55px;
+        @media (max-width: $md3 + px) {
+            margin: 0 auto 48px;
+        }
+        @media (max-width: $md4 + px) {
+            margin: 0 auto 42px;
+        }
+    }
+    &__form {
+        max-width: 560px;
+        margin: 0 auto 34px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        @media (max-width: $md4 + px) {
+            gap: 16px;
+        }
+    }
+    &__name {
+        display: flex;
+        gap: 24px;
+        width: 100%;
+        text-align: left;
+        @media (max-width: $md2+px) {
+            flex-direction: column;
+        }
+        @media (max-width: $md4 + px) {
+            gap: 16px;
+        }
+    }
+    &__firstname {
+        flex: 1 1 auto;
+    }
+    &__lastname {
+        flex: 1 1 auto;
+    }
+    &__email {
+        width: 100%;
+        text-align: left;
+    }
+    &__message {
+        text-align: left;
+        width: 100%;
+        textarea {
+            display: block; 
+            width: 100%;
+            height: 256px;
+
+            border-radius: 16px;
+            padding: 16px;
+
+            color: #19192A;
+            font-weight: 500;
+            @include adaptiv-font(18, 16);
+            line-height: 16 / 18 * 100%;
+
+            resize: none;
+            @media (max-width: $md4 + px) {
+                margin: 0 0 36px 0;
+                height: 192px;
+            }
+        }
+    }
+
+    &__contactus {
+        color: #23EAA4;
+        @include adaptiv-font(18, 16);
+        line-height: 64 / 18 * 100%;
+        @media (max-width: $md4 + px) {
+            line-height: 24 / 16 * 100%;
+        }
+
+        span {
+            margin: 0 8px 0 0;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    &__icon {
+        vertical-align: middle;
+    }
+}
+

@@ -1,0 +1,40 @@
+.join {
+    background: linear-gradient(90deg, #146f4f 0%, rgba(35, 234, 164, 0.2) 25.94%, #1F1F31 60%);
+    padding: 110px 0;
+    text-align: center;
+    @media (max-width: $md3+px) {
+        padding: 80px 0 100px 0;
+    }
+    @media (max-width: $md4+px) {
+        padding: 60px 0 100px 0;
+    }
+    &__title {
+        color: #fff;
+        margin: 0 0 35px 0;
+        @media (max-width: $md3+px) {
+            margin: 0 0 30px 0;
+        }
+        @media (max-width: $md4+px) {
+            margin: 0 0 24px 0;
+        }
+    }
+    &__text {
+        margin: 0 auto 100px;
+        max-width: 703px;
+        font-size: 14px;
+        @media (max-width: $md2+px) {
+            margin: 0 0 90px 0;
+        }
+        @media (max-width: $md3+px) {
+            margin: 0 0 75px 0;
+        }
+        @media (max-width: $md4+px) {
+            margin: 0 0 64px 0;
+        }
+    }
+    &__btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

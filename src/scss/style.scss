@@ -1,0 +1,75 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:200,300,regular,500,600,700display=swap);
+@import url(https://fonts.googleapis.com/css?family=Nunito:300italic,600italicdisplay=swap);
+@import url(https://fonts.googleapis.com/css?family=Nunito+Sans:700display=swap);
+$fontFamily: 'Poppins';
+
+$minWidth: 375px;
+$maxWidth: 2304;
+$maxWidthContainer: 1726;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 768.98;
+$md4: 479.98;
+
+@import 'null';
+body {
+    background-color: #1A1A2B;
+    color: #fff;
+    font-size: 18px;
+    line-height: 25 / 18 * 100%;
+    &._lock {
+        overflow: hidden;
+    }
+}
+
+// Оболочка================================================
+.wrapper {
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    &._loaded {
+    }
+}
+
+main {
+    flex: 1 1 auto;
+}
+
+//Основная сетка================================================
+.container {
+	margin: 0 auto;
+    width: 100%;
+    padding: 0 4.9%;
+    @media (max-width: $md2+px) {
+        max-width: none;
+    }
+    @media (max-width: $md4+px) {
+        padding: 0 16px;
+    }
+}
+
+@mixin adaptiv-font($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $addMobSize: $addSize + $addSize * 0.7;
+    @media (max-width: 767px) {
+        font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 375px) / #{$maxWidth}));
+    }
+    @media (min-width: 767px) {
+        font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+    }
+}
+
+@import 'null';
+@import 'ui';
+@import 'header';
+@import 'intro';
+@import 'accessibility';
+@import 'diverse';
+@import 'why';
+@import 'join';
+@import 'news';
+@import 'howcan';
+@import 'footer';
+
