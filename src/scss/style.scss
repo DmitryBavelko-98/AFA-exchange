@@ -27,15 +27,26 @@ body {
     width: 100%;
     min-height: 100%;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template: minmax(100px, auto) 1fr minmax(70px, auto) / 1fr;
+    grid-template-areas: 
+        'header'
+        'main'
+        'footer';
     &._loaded {
     }
 }
 
-main {
-    flex: 1 1 auto;
+.header {
+    grid-area: header;
 }
+main {
+    grid-area: main;
+}
+.footer {
+    grid-area: footer;
+}
+
 
 //Основная сетка================================================
 .container {
