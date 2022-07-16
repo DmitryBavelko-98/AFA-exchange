@@ -4,47 +4,36 @@ let crypto = document.querySelector('.accessibility__crypto'),
     fees =  document.querySelector('.accessibility__fees'),
     bodys = document.querySelectorAll('.accessibility__body'),
     lines = document.querySelectorAll('.accessibility__line'),
-    introH = document.querySelector('#intro').clientHeight,
+    introH = document.querySelector('#intro'),
     scrollOffset;
-
-    console.log(introH)
 
 function setOffset() {
     scrollOffset = document.documentElement.scrollTop;
-    console.log(scrollOffset)
 }
 
 function showNumbers () {
-    let cryptoValue = 500;
-    let countryValue = 0;
+    let cryptoValue = 400;
+    let countryValue = 2;
     let feesValue = 0;
 
-    let cryptoTimer = setTimeout(function increaseCrypto() {
-        cryptoValue += 1;
-        crypto.innerHTML = cryptoValue;
-        cryptoTimer = setTimeout(increaseCrypto, 0);
-        if (cryptoValue >= 847) {
-            clearTimeout(cryptoTimer);
+    function increaseField(field, value, maxValue, timer) {
+        if (value < 1.15) {
+            value += 0.01;
+            timer = setTimeout(() => increaseField(field, value, maxValue, timer), 100);
+            field.innerHTML = value.toFixed(2);
+        } else {
+            value += 1;
+            timer = setTimeout(() => increaseField(field, value, maxValue, timer), 0);
+            field.innerHTML = value;
         }
-    }, 0);
-    
-    let countryTimer = setTimeout(function increaseCountry() {
-        countryValue += 1;
-        country.innerHTML = countryValue;
-        countryTimer = setTimeout(increaseCountry, 0); 
-        if (countryValue >= 200) {
-            clearTimeout(countryTimer);
+        if (value >= maxValue) {
+            clearTimeout(timer);
         }
-    }, 0);
+    }
 
-    let feesTimer = setTimeout(function increaseFees() {
-        feesValue += 0.01;
-        fees.innerHTML = feesValue.toFixed(2);
-        feesTimer = setTimeout(increaseFees, 100); 
-        if (feesValue >= 0.15) {
-            clearTimeout(feesTimer);
-        }
-    }, 100);
+    let cryptoTimer = setTimeout(() => increaseField(crypto, cryptoValue, 847, cryptoTimer), 0);
+    let countryTimer = setTimeout(() => increaseField(country, countryValue, 200, countryTimer), 0);
+    let feesTimer = setTimeout(() => increaseField(fees, feesValue, 0.15, feesTimer), 100);
 }
 
 function startAnimation() {
@@ -58,7 +47,7 @@ function startAnimation() {
 
 function renderItems() {
     setOffset();
-    if (scrollOffset > introH - 200) {
+    if (scrollOffset > introH.clientHeight - 200) {
         startAnimation();
         showNumbers();
     }
@@ -67,7 +56,7 @@ function renderItems() {
 window.addEventListener('scroll', renderItems);
 
 window.addEventListener('scroll', () => {
-    if (scrollOffset > introH - 200) {
+    if (scrollOffset > introH.clientHeight - 200) {
         window.removeEventListener('scroll', renderItems);
     }
 });
