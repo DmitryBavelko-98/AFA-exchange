@@ -1,68 +1,63 @@
+const COUNT_TIME = 200;
 
-let crypto = document.querySelector('.accessibility__crypto'),
-    country = document.querySelector('.accessibility__country'),
-    fees =  document.querySelector('.accessibility__fees'),
-    bodys = document.querySelectorAll('.accessibility__body'),
-    lines = document.querySelectorAll('.accessibility__line'),
-    introH = document.querySelector('#intro'),
-    scrollOffset;
+const $countersList = document.querySelector('#accessibility__items');
+const $counters = document.querySelectorAll('.accessibility__value');
+const $bodys = document.querySelectorAll('.accessibility__body');
+const $lines = document.querySelectorAll('.accessibility__line');
+const $introH = document.querySelector('#intro');
 
-function setOffset() {
-    scrollOffset = document.documentElement.scrollTop;
-}
+let isCounted = false;
 
 function showNumbers () {
-    let cryptoValue = 400;
-    let countryValue = 2;
-    let feesValue = 0;
+    $counters.forEach(startCounter)
+}
 
-    function increaseField(field, value, maxValue, timer) {
-        if (value < 1.15) {
-            value += 0.01;
-            timer = setTimeout(() => increaseField(field, value, maxValue, timer), 100);
-            field.innerHTML = value.toFixed(2);
+function startCounter($counter) {
+    const target = +$counter.dataset.value;
+    
+    const step = target / COUNT_TIME;
+    console.log(step)
+
+    updateCounter ($counter, 0, target, step);
+}
+ 
+function updateCounter($counter, start, target, step) {
+    if (start < target + 0.01) {
+        if (target < 1) {
+            $counter.textContent = start.toFixed(2);
+            setTimeout(() => {
+                updateCounter($counter, start + step, target, step)
+            }, 7)
         } else {
-            value += 1;
-            timer = setTimeout(() => increaseField(field, value, maxValue, timer), 0);
-            field.innerHTML = value;
-        }
-        if (value >= maxValue) {
-            clearTimeout(timer);
+            $counter.textContent = start.toFixed(0);
+            setTimeout(() => {
+                updateCounter($counter, start + step, target, step)
+            }, 12)
         }
     }
-
-    let cryptoTimer = setTimeout(() => increaseField(crypto, cryptoValue, 847, cryptoTimer), 0);
-    let countryTimer = setTimeout(() => increaseField(country, countryValue, 200, countryTimer), 0);
-    let feesTimer = setTimeout(() => increaseField(fees, feesValue, 0.15, feesTimer), 100);
 }
 
 function startAnimation() {
-    bodys.forEach(body => {
+    $bodys.forEach(body => {
         body.classList.add('active');
     })
-    lines.forEach(line => {
+    $lines.forEach(line => {
         line.classList.add('active');
     })
 }
 
 function renderItems() {
-    setOffset();
-    if (scrollOffset > introH.clientHeight - 200) {
+    if (isCounted) return;
+
+    const rect = $countersList.getBoundingClientRect();
+    if (rect.bottom < window.innerHeight) {
+        isCounted = true;
         startAnimation();
         showNumbers();
     }
 }
 
-window.addEventListener('scroll', renderItems);
-
-window.addEventListener('scroll', () => {
-    if (scrollOffset > introH.clientHeight - 200) {
-        window.removeEventListener('scroll', renderItems);
-    }
-});
-
-
-
+document.addEventListener('scroll', renderItems);
 
 
 
